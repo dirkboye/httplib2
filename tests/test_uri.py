@@ -33,6 +33,8 @@ def test_norm():
         ("http://EXAMple.org?=b", "http://example.org/?=b"),
         ("http://EXAMple.org/mypath?a=b", "http://example.org/mypath?a=b"),
         ("http://localhost:80", "http://localhost:80/"),
+        ("http://localhost:443", "https://localhost/"),
+        ("https://localhost:8888", "https://localhost:8888/"),
     )
     for a, b in cases:
         assert httplib2.urlnorm(a)[-1] == b
